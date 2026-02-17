@@ -76,7 +76,7 @@ export function Guides() {
                     alt={guide.name}
                     width={112}
                     height={112}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain"
                   />
                 </motion.div>
 

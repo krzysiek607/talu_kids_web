@@ -104,7 +104,7 @@ export const TESTIMONIALS = [
   {
     name: "Marta D.",
     role: "Mama 4-latka i 7-latki",
-    text: "Obie córki uwielbiają TaLu Kids, mimo różnicy wieku. Starsza pomaga młodszej opiewać się nad zwierzakiem. Cudowne!",
+    text: "Obie córki uwielbiają TaLu Kids, mimo różnicy wieku. Starsza pomaga młodszej opiekować się nad zwierzakiem. Cudowne!",
     avatar: "MD",
     rating: 5,
   },

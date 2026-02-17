@@ -98,7 +98,7 @@ export function Newsletter() {
                   placeholder="twoj@email.pl"
                   required
                   className="flex-1 rounded-full border-2 border-white/20 bg-white/10 px-6 py-4 text-white placeholder:text-white/50 backdrop-blur-sm transition-all focus:border-white/50 focus:bg-white/15 focus:outline-none"
-                  style={{ fontFamily: "var(--font-body)" }}
+                  style={{ fontFamily: "var(--font-nunito)" }}
                 />
                 <button
                   type="submit"

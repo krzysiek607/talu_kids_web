@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Download, Star, Sparkles } from "lucide-react"
+import { ArrowRight, Star, Sparkles } from "lucide-react"
 
 const floatingShapes = [
   { color: "from-yellow-400 to-yellow-500", size: "w-16 h-16", position: "top-[15%] left-[8%]", delay: 0, duration: 20 },
@@ -109,8 +109,7 @@ export function Hero() {
             className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-pink-500/30 transition-all hover:shadow-2xl hover:shadow-pink-500/40 hover:-translate-y-1 active:translate-y-0"
             style={{ fontFamily: "var(--font-baloo)" }}
           >
-            <Download className="h-5 w-5" />
-            Pobierz za darmo
+            Dołącz do beta
             <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
           </a>
           <a

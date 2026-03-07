@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { ArrowLeft, Calendar, Clock } from "lucide-react"
+import { ArrowLeft, CalendarDots, Clock } from "@phosphor-icons/react/dist/ssr"
 import { notFound } from "next/navigation"
 import { href } from "@/lib/utils"
 
@@ -119,7 +119,7 @@ export default async function BlogPostPage({
           href={href("/blog")}
           className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-pink-500 hover:text-pink-600 transition-colors"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ArrowLeft size={16} weight="bold" />
           Wróć do bloga
         </a>
 
@@ -136,7 +136,7 @@ export default async function BlogPostPage({
 
         <div className="mb-8 flex items-center gap-4 text-sm text-text-muted">
           <span className="flex items-center gap-1">
-            <Calendar className="h-4 w-4" />
+            <CalendarDots size={16} weight="bold" />
             {new Date(post.date).toLocaleDateString("pl-PL", {
               day: "numeric",
               month: "long",
@@ -144,7 +144,7 @@ export default async function BlogPostPage({
             })}
           </span>
           <span className="flex items-center gap-1">
-            <Clock className="h-4 w-4" />
+            <Clock size={16} weight="bold" />
             {post.readTime}
           </span>
         </div>

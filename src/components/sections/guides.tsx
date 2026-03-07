@@ -11,7 +11,7 @@ const guides = [
       "Lumi uwielbia eksplorować i odkrywać nowe rzeczy. Pomaga dzieciom poznawać świat liter i liczb z uśmiechem na twarzy.",
     image: "/images/Lumi.png",
     borderColor: "border-pink-400",
-    bgGradient: "from-pink-100 to-pink-50",
+    bg: "bg-pink-50",
     textColor: "text-pink-600",
   },
   {
@@ -21,7 +21,7 @@ const guides = [
       "Taro jest pełen pomysłów i kreatywności. Inspiruje dzieci do tworzenia, rysowania i rozwiązywania zagadek logicznych.",
     image: "/images/Taro.png",
     borderColor: "border-teal-400",
-    bgGradient: "from-teal-100 to-teal-50",
+    bg: "bg-teal-50",
     textColor: "text-teal-600",
   },
 ]
@@ -38,13 +38,13 @@ export function Guides() {
           className="text-center mb-16"
         >
           <span
-            className="inline-block rounded-full bg-gradient-to-r from-purple-500 to-pink-400 px-5 py-2 text-sm font-bold text-white uppercase tracking-wider shadow-lg shadow-purple-500/20 mb-6"
+            className="inline-block rounded-full bg-purple-500 px-5 py-2 text-sm font-bold text-white uppercase tracking-wider shadow-lg shadow-purple-500/20 mb-6"
             style={{ fontFamily: "var(--font-baloo)" }}
           >
             Przewodnicy
           </span>
           <h2
-            className="text-4xl font-bold sm:text-5xl bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-4"
+            className="text-4xl font-extrabold sm:text-5xl text-purple-600 mb-4"
             style={{ fontFamily: "var(--font-fredoka)" }}
           >
             Poznaj swoich przyjaciół
@@ -63,7 +63,7 @@ export function Guides() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className={`group relative overflow-hidden rounded-3xl border-2 ${guide.borderColor} bg-gradient-to-br ${guide.bgGradient} p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl`}
+              className={`group relative overflow-hidden rounded-3xl border-2 ${guide.borderColor} ${guide.bg} p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl`}
             >
               <div className="flex flex-col items-center text-center sm:flex-row sm:text-left sm:items-start gap-6">
                 <motion.div

@@ -1,25 +1,10 @@
 import type { Metadata } from "next"
-import localFont from "next/font/local"
 import { Nunito, Baloo_2 } from "next/font/google"
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { CookieConsent } from "@/components/ui/cookie-consent"
+import { PostHogProvider } from "@/components/analytics/posthog-provider"
 import "./globals.css"
-
-const fredoka = localFont({
-  src: [
-    {
-      path: "../fonts/fredoka-latin-ext.woff2",
-      style: "normal",
-    },
-    {
-      path: "../fonts/fredoka-latin.woff2",
-      style: "normal",
-    },
-  ],
-  variable: "--font-fredoka",
-  display: "swap",
-})
 
 const nunito = Nunito({
   subsets: ["latin", "latin-ext"],
@@ -34,7 +19,7 @@ const baloo = Baloo_2({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://talukids.pl"),
+  metadataBase: new URL("https://www.talukids.pl"),
   title: {
     default: "TaLu Kids - Partner Twojego Dziecka | Edukacja przez zabawę",
     template: "%s | TaLu Kids",
@@ -58,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pl_PL",
-    url: "https://talukids.pl",
+    url: "https://www.talukids.pl",
     siteName: "TaLu Kids",
     title: "TaLu Kids - Partner Twojego Dziecka",
     description:
@@ -91,7 +76,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon-192.png",
     apple: "/apple-touch-icon.png",
   },
 }
@@ -102,7 +87,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pl" className={`${fredoka.variable} ${nunito.variable} ${baloo.variable}`}>
+    <html lang="pl" className={`${nunito.variable} ${baloo.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -134,6 +119,7 @@ export default function RootLayout({
         {children}
         <Footer />
         <CookieConsent />
+        <PostHogProvider />
       </body>
     </html>
   )

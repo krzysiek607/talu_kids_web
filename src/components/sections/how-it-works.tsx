@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { EVOLUTION_STEPS } from "@/lib/constants"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from "@phosphor-icons/react"
 
 const colorMap = {
   yellow: {
@@ -10,21 +10,21 @@ const colorMap = {
     border: "border-yellow-300",
     text: "text-yellow-600",
     shadow: "shadow-yellow-500/10",
-    gradient: "from-yellow-400 to-yellow-500",
+    badge: "bg-yellow-500",
   },
   teal: {
     bg: "bg-teal-50",
     border: "border-teal-300",
     text: "text-teal-600",
     shadow: "shadow-teal-500/10",
-    gradient: "from-teal-400 to-teal-500",
+    badge: "bg-teal-500",
   },
   purple: {
     bg: "bg-purple-50",
     border: "border-purple-300",
     text: "text-purple-600",
     shadow: "shadow-purple-500/10",
-    gradient: "from-purple-400 to-purple-500",
+    badge: "bg-purple-500",
   },
 } as const
 
@@ -45,13 +45,13 @@ export function HowItWorks() {
           className="text-center mb-16"
         >
           <span
-            className="inline-block rounded-full bg-gradient-to-r from-pink-500 to-orange-400 px-5 py-2 text-sm font-bold text-white uppercase tracking-wider shadow-lg shadow-pink-500/20 mb-6"
+            className="inline-block rounded-full bg-pink-500 px-5 py-2 text-sm font-bold text-white uppercase tracking-wider shadow-lg shadow-pink-500/20 mb-6"
             style={{ fontFamily: "var(--font-baloo)" }}
           >
             Mechanika gry
           </span>
           <h2
-            className="text-4xl font-bold sm:text-5xl bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-4"
+            className="text-4xl font-extrabold sm:text-5xl text-pink-600 mb-4"
             style={{ fontFamily: "var(--font-fredoka)" }}
           >
             Od Jajka do Przyjaciela
@@ -76,18 +76,23 @@ export function HowItWorks() {
                 >
                   {/* Step number */}
                   <div
-                    className={`absolute -top-4 -right-4 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br ${colors.gradient} text-sm font-bold text-white shadow-lg`}
+                    className={`absolute -top-4 -right-4 flex h-8 w-8 items-center justify-center rounded-full ${colors.badge} text-sm font-bold text-white shadow-lg`}
                   >
                     {i + 1}
                   </div>
 
-                  {/* Emoji */}
+                  {/* Egg phase image */}
                   <motion.div
-                    className={`mx-auto mb-5 flex h-24 w-24 items-center justify-center rounded-full ${colors.bg} text-5xl`}
-                    whileHover={{ scale: 1.15, rotate: 10 }}
+                    className={`mx-auto mb-5 flex h-28 w-28 items-center justify-center rounded-full ${colors.bg}`}
+                    whileHover={{ scale: 1.15, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    {step.emoji}
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      className="h-24 w-24 object-contain drop-shadow-md"
+                      loading="lazy"
+                    />
                   </motion.div>
 
                   <h3
@@ -110,7 +115,7 @@ export function HowItWorks() {
                     transition={{ delay: 0.5 + i * 0.15 }}
                     className="hidden lg:block text-pink-300"
                   >
-                    <ArrowRight className="h-8 w-8" />
+                    <ArrowRight size={32} weight="bold" />
                   </motion.div>
                 )}
               </div>

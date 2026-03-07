@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { FileText } from "lucide-react"
+import { FileText } from "@phosphor-icons/react/dist/ssr"
 
 export const metadata: Metadata = {
   title: "Regulamin",
@@ -11,8 +11,8 @@ export default function TermsPage() {
     <main className="min-h-screen pt-28 pb-20">
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-8 flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-green-400">
-            <FileText className="h-6 w-6 text-white" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-500">
+            <FileText size={24} weight="duotone" className="text-white" />
           </div>
           <div>
             <h1

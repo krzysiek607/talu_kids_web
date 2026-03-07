@@ -1,18 +1,18 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Shield, BarChart3, Clock, Lock, Eye, Bell } from "lucide-react"
+import { ShieldCheck, ChartBar, Clock, Lock, Eye, Bell } from "@phosphor-icons/react"
 
 const parentFeatures = [
   {
-    icon: Shield,
+    icon: ShieldCheck,
     title: "Pełna zgodność z RODO i COPPA",
     description: "Dane dziecka są szyfrowane i bezpieczne. Minimalizujemy zbieranie danych.",
   },
   {
-    icon: BarChart3,
-    title: "Raporty postępów",
-    description: "Zobacz które litery Twoje dziecko opanowało i ile czasu spędza w aplikacji.",
+    icon: ChartBar,
+    title: "Panel Rodzica online",
+    description: "Połącz konto w aplikacji i śledź postępy dziecka z przeglądarki na talukids.pl.",
   },
   {
     icon: Clock,
@@ -49,13 +49,13 @@ export function Parents() {
             transition={{ duration: 0.6 }}
           >
             <span
-              className="inline-block rounded-full bg-gradient-to-r from-purple-500 to-pink-400 px-5 py-2 text-sm font-bold text-white uppercase tracking-wider shadow-lg shadow-purple-500/20 mb-6"
+              className="inline-block rounded-full bg-purple-500 px-5 py-2 text-sm font-bold text-white uppercase tracking-wider shadow-lg shadow-purple-500/20 mb-6"
               style={{ fontFamily: "var(--font-baloo)" }}
             >
               Dla rodziców
             </span>
             <h2
-              className="text-4xl font-bold sm:text-5xl bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent mb-4"
+              className="text-4xl font-extrabold sm:text-5xl text-purple-600 mb-4"
               style={{ fontFamily: "var(--font-fredoka)" }}
             >
               Pełna kontrola, zero stresu
@@ -77,7 +77,7 @@ export function Parents() {
                   className="flex gap-3"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-50">
-                    <feature.icon className="h-5 w-5 text-purple-500" />
+                    <feature.icon size={20} weight="duotone" className="text-purple-500" />
                   </div>
                   <div>
                     <h4 className="text-sm font-bold text-text">{feature.title}</h4>
@@ -98,9 +98,9 @@ export function Parents() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="rounded-3xl border-2 border-purple-200 bg-gradient-to-br from-purple-50 to-pink-50 p-8 shadow-xl">
+            <div className="rounded-3xl border-2 border-purple-200 bg-purple-50 p-8 shadow-xl">
               <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 to-pink-500 text-2xl shadow-lg">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-500 text-2xl shadow-lg">
                   👨‍👩‍👧‍👦
                 </div>
                 <div>
@@ -127,7 +127,7 @@ export function Parents() {
                       whileInView={{ width: "78%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1, delay: 0.5 }}
-                      className="h-full rounded-full bg-gradient-to-r from-teal-400 to-teal-500"
+                      className="h-full rounded-full bg-teal-500"
                     />
                   </div>
                 </div>
@@ -142,7 +142,7 @@ export function Parents() {
                       whileInView={{ width: "54%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1, delay: 0.7 }}
-                      className="h-full rounded-full bg-gradient-to-r from-pink-400 to-pink-500"
+                      className="h-full rounded-full bg-pink-500"
                     />
                   </div>
                 </div>
@@ -157,7 +157,7 @@ export function Parents() {
                       whileInView={{ width: "91%" }}
                       viewport={{ once: true }}
                       transition={{ duration: 1, delay: 0.9 }}
-                      className="h-full rounded-full bg-gradient-to-r from-purple-400 to-purple-500"
+                      className="h-full rounded-full bg-purple-500"
                     />
                   </div>
                 </div>
@@ -182,10 +182,71 @@ export function Parents() {
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 h-16 w-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-yellow-500 opacity-20 blur-xl" />
-            <div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-2xl bg-gradient-to-br from-teal-400 to-teal-500 opacity-20 blur-xl" />
+            <div className="absolute -top-4 -right-4 h-16 w-16 rounded-2xl bg-yellow-400 opacity-20 blur-xl" />
+            <div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-2xl bg-teal-400 opacity-20 blur-xl" />
           </motion.div>
         </div>
+
+        {/* How to connect section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 rounded-3xl border-2 border-purple-100 bg-purple-50/50 p-8 sm:p-12"
+        >
+          <h3
+            className="text-2xl font-extrabold text-center text-purple-600 mb-3 sm:text-3xl"
+            style={{ fontFamily: "var(--font-fredoka)" }}
+          >
+            Jak włączyć Panel Rodzica online?
+          </h3>
+          <p className="text-center text-text-muted mb-10 max-w-xl mx-auto">
+            Trzy proste kroki, żeby śledzić postępy dziecka z dowolnego urządzenia.
+          </p>
+
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[
+              {
+                step: "1",
+                title: "Otwórz ustawienia",
+                description: "W aplikacji przytrzymaj 4 sekundy, żeby odblokować sekcję rodzica. Wybierz \"Konto rodzica\".",
+              },
+              {
+                step: "2",
+                title: "Podaj email i hasło",
+                description: "Wpisz swój adres email i utwórz hasło. To połączy konto dziecka z Twoim emailem.",
+              },
+              {
+                step: "3",
+                title: "Zaloguj się na stronie",
+                description: "Wejdź na talukids.pl/panel-rodzica i zaloguj się. Gotowe — widzisz postępy na żywo!",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.15 }}
+                className="relative rounded-2xl bg-white p-6 shadow-sm text-center"
+              >
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-purple-500 text-white text-xl font-bold shadow-lg shadow-purple-500/20">
+                  {item.step}
+                </div>
+                <h4
+                  className="text-lg font-bold text-text mb-2"
+                  style={{ fontFamily: "var(--font-fredoka)" }}
+                >
+                  {item.title}
+                </h4>
+                <p className="text-sm text-text-muted leading-relaxed">
+                  {item.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

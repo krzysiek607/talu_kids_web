@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Star, Quote } from "lucide-react"
+import { Star, Quotes } from "@phosphor-icons/react"
 import { TESTIMONIALS } from "@/lib/constants"
 
 export function Testimonials() {
@@ -18,13 +18,13 @@ export function Testimonials() {
           className="text-center mb-16"
         >
           <span
-            className="inline-block rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 px-5 py-2 text-sm font-bold text-white uppercase tracking-wider shadow-lg shadow-yellow-500/20 mb-6"
+            className="inline-block rounded-full bg-yellow-500 px-5 py-2 text-sm font-bold text-white uppercase tracking-wider shadow-lg shadow-yellow-500/20 mb-6"
             style={{ fontFamily: "var(--font-baloo)" }}
           >
             Opinie
           </span>
           <h2
-            className="text-4xl font-bold sm:text-5xl bg-gradient-to-r from-yellow-500 to-pink-500 bg-clip-text text-transparent mb-4"
+            className="text-4xl font-bold sm:text-5xl text-yellow-600 mb-4"
             style={{ fontFamily: "var(--font-fredoka)" }}
           >
             Rodzice polecają
@@ -43,15 +43,17 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="group relative rounded-3xl border-2 border-yellow-100 bg-white p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-yellow-300"
+              className="group relative rounded-3xl border border-yellow-200/50 bg-white/70 backdrop-blur-sm p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 hover:shadow-xl hover:shadow-yellow-500/10 hover:border-yellow-300"
             >
-              <Quote className="absolute top-6 right-6 h-8 w-8 text-yellow-200 transition-colors group-hover:text-yellow-300" />
+              <Quotes size={32} weight="fill" className="absolute top-6 right-6 text-yellow-200 transition-colors group-hover:text-yellow-300" />
 
               <div className="mb-4 flex items-center gap-1">
                 {[...Array(testimonial.rating)].map((_, j) => (
                   <Star
                     key={j}
-                    className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                    size={16}
+                    weight="fill"
+                    className="text-yellow-400"
                   />
                 ))}
               </div>
@@ -61,7 +63,7 @@ export function Testimonials() {
               </p>
 
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink-400 to-purple-400 text-sm font-bold text-white shadow-md">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-500 text-sm font-bold text-white shadow-md">
                   {testimonial.avatar}
                 </div>
                 <div>

@@ -1,14 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Star, Sparkles } from "lucide-react"
+import { ArrowRight, Star, Sparkle } from "@phosphor-icons/react"
 
 const floatingShapes = [
-  { color: "from-yellow-400 to-yellow-500", size: "w-16 h-16", position: "top-[15%] left-[8%]", delay: 0, duration: 20 },
-  { color: "from-pink-400 to-pink-500", size: "w-12 h-12", position: "top-[25%] right-[12%]", delay: 2, duration: 25 },
-  { color: "from-teal-400 to-teal-500", size: "w-20 h-20", position: "bottom-[20%] left-[12%]", delay: 4, duration: 22 },
-  { color: "from-purple-400 to-purple-500", size: "w-14 h-14", position: "bottom-[30%] right-[8%]", delay: 6, duration: 28 },
-  { color: "from-green-400 to-green-500", size: "w-10 h-10", position: "top-[50%] left-[3%]", delay: 3, duration: 18 },
+  { color: "bg-yellow-400", size: "w-16 h-16", position: "top-[15%] left-[8%]", delay: 0, duration: 20 },
+  { color: "bg-pink-400", size: "w-12 h-12", position: "top-[25%] right-[12%]", delay: 2, duration: 25 },
+  { color: "bg-teal-400", size: "w-20 h-20", position: "bottom-[20%] left-[12%]", delay: 4, duration: 22 },
+  { color: "bg-purple-400", size: "w-14 h-14", position: "bottom-[30%] right-[8%]", delay: 6, duration: 28 },
+  { color: "bg-green-400", size: "w-10 h-10", position: "top-[50%] left-[3%]", delay: 3, duration: 18 },
 ]
 
 export function Hero() {
@@ -22,7 +22,7 @@ export function Hero() {
         {floatingShapes.map((shape, i) => (
           <motion.div
             key={i}
-            className={`absolute ${shape.position} ${shape.size} rounded-2xl bg-gradient-to-br ${shape.color} opacity-10 blur-sm`}
+            className={`absolute ${shape.position} ${shape.size} rounded-2xl ${shape.color} opacity-10 blur-sm`}
             animate={{
               y: [0, -30, 10, -20, 0],
               x: [0, 15, -10, 20, 0],
@@ -43,33 +43,33 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-pink-50/40 via-transparent to-purple-50/30 pointer-events-none" />
 
       <div className="relative mx-auto max-w-5xl px-6 py-20 text-center">
-        {/* Badge */}
+        {/* Badge - glassmorphism */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-yellow-400 px-5 py-2.5 text-white shadow-lg shadow-pink-500/20"
+          className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/80 backdrop-blur-md border border-pink-200/50 px-5 py-2.5 text-pink-600 shadow-lg shadow-pink-500/10"
         >
-          <Star className="h-4 w-4 fill-current" />
+          <Star size={16} weight="fill" />
           <span className="text-sm font-bold" style={{ fontFamily: "var(--font-baloo)" }}>
             Dla dzieci 4-8 lat
           </span>
-          <Sparkles className="h-4 w-4" />
+          <Sparkle size={16} weight="fill" />
         </motion.div>
 
-        {/* Title */}
+        {/* Title - flat colors */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mb-6 text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl"
+          className="mb-6 text-5xl font-extrabold leading-tight tracking-tight sm:text-6xl lg:text-7xl xl:text-8xl"
           style={{ fontFamily: "var(--font-fredoka)" }}
         >
-          <span className="inline-block bg-gradient-to-r from-pink-500 via-purple-500 to-teal-500 bg-clip-text text-transparent">
+          <span className="inline-block text-[#6C63FF]">
             Partner Twojego
           </span>
           <br />
-          <span className="inline-block bg-gradient-to-r from-teal-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          <span className="inline-block text-[#6C63FF]">
             Dziecka
           </span>
         </motion.h1>
@@ -105,16 +105,18 @@ export function Hero() {
           className="flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <a
-            href="#newsletter"
-            className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-pink-500/30 transition-all hover:shadow-2xl hover:shadow-pink-500/40 hover:-translate-y-1 active:translate-y-0"
+            href="https://play.google.com/store/apps/details?id=pl.talukids.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full bg-pink-500 px-8 py-4 text-lg font-bold text-white shadow-xl shadow-pink-500/30 transition-all hover:shadow-2xl hover:shadow-pink-500/40 hover:-translate-y-1 active:translate-y-0 active:scale-[0.97]"
             style={{ fontFamily: "var(--font-baloo)" }}
           >
-            Dołącz do beta
-            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+            Pobierz aplikację
+            <ArrowRight size={20} weight="bold" className="transition-transform group-hover:translate-x-1" />
           </a>
           <a
             href="#funkcje"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-pink-200 bg-white px-8 py-4 text-lg font-bold text-pink-500 shadow-lg shadow-pink-500/10 transition-all hover:bg-pink-500 hover:text-white hover:shadow-xl hover:-translate-y-1 active:translate-y-0"
+            className="inline-flex items-center gap-2 rounded-full border-2 border-pink-200 bg-white px-8 py-4 text-lg font-bold text-pink-500 shadow-lg shadow-pink-500/10 transition-all hover:bg-pink-500 hover:text-white hover:shadow-xl hover:-translate-y-1 active:translate-y-0 active:scale-[0.97]"
             style={{ fontFamily: "var(--font-baloo)" }}
           >
             Zobacz możliwości
@@ -132,7 +134,7 @@ export function Hero() {
             {["AK", "TW", "MD", "JB", "KL"].map((initials, i) => (
               <div
                 key={i}
-                className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-pink-400 to-purple-400 text-xs font-bold text-white shadow-md"
+                className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-pink-500 text-xs font-bold text-white shadow-md hover:scale-110 hover:-translate-y-1 transition-transform"
               >
                 {initials}
               </div>
@@ -140,12 +142,12 @@ export function Hero() {
           </div>
           <div className="flex items-center gap-1">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <Star key={i} size={16} weight="fill" className="text-yellow-400" />
             ))}
           </div>
           <p className="text-sm text-text-muted">
             <span className="font-bold text-text">500+</span> szczęśliwych rodzin
-            w fazie beta
+            korzysta z aplikacji
           </p>
         </motion.div>
       </div>

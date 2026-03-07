@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion"
 import { useEffect, useRef } from "react"
-import { Gamepad2, BookA, Trophy, Users } from "lucide-react"
+import { GameController, TextAa, Trophy, UsersThree } from "@phosphor-icons/react"
 
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null)
@@ -31,10 +31,10 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
 
 const stats = [
   {
-    value: 7,
+    value: 10,
     suffix: "",
-    label: "Gier edukacyjnych",
-    icon: Gamepad2,
+    label: "Gier w aplikacji",
+    icon: GameController,
     color: "text-pink-500",
     bg: "bg-pink-50",
   },
@@ -42,7 +42,7 @@ const stats = [
     value: 32,
     suffix: "",
     label: "Liter do nauki",
-    icon: BookA,
+    icon: TextAa,
     color: "text-teal-500",
     bg: "bg-teal-50",
   },
@@ -57,8 +57,8 @@ const stats = [
   {
     value: 500,
     suffix: "+",
-    label: "Rodzin w beta",
-    icon: Users,
+    label: "Rodzin korzysta",
+    icon: UsersThree,
     color: "text-yellow-500",
     bg: "bg-yellow-50",
   },
@@ -85,9 +85,9 @@ export function Stats() {
               className="text-center"
             >
               <div
-                className={`mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl ${stat.bg}`}
+                className={`mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl ${stat.bg} hover:scale-110 transition-transform`}
               >
-                <stat.icon className={`h-7 w-7 ${stat.color}`} />
+                <stat.icon size={28} weight="duotone" className={stat.color} />
               </div>
               <p
                 className={`text-3xl font-bold ${stat.color} sm:text-4xl`}

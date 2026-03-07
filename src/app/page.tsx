@@ -2,6 +2,8 @@ import { Hero } from "@/components/sections/hero"
 import { Stats } from "@/components/sections/stats"
 import { Features } from "@/components/sections/features"
 import { HowItWorks } from "@/components/sections/how-it-works"
+import { Methodology } from "@/components/sections/methodology"
+import { Differentiators } from "@/components/sections/differentiators"
 import { Guides } from "@/components/sections/guides"
 import { Gallery } from "@/components/sections/gallery"
 import { Parents } from "@/components/sections/parents"
@@ -16,6 +18,8 @@ export default function Home() {
       <Stats />
       <Features />
       <HowItWorks />
+      <Methodology />
+      <Differentiators />
       <Guides />
       <Gallery />
       <Parents />

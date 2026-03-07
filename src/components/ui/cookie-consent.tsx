@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Cookie, X } from "lucide-react"
+import { Cookie, X } from "@phosphor-icons/react"
 import { href } from "@/lib/utils"
 
 export function CookieConsent() {
@@ -16,14 +16,23 @@ export function CookieConsent() {
     }
   }, [])
 
+  // Nasłuchuj na reset consent (np. z footera)
+  useEffect(() => {
+    const handleReset = () => setIsVisible(true)
+    window.addEventListener("cookie-consent-reset", handleReset)
+    return () => window.removeEventListener("cookie-consent-reset", handleReset)
+  }, [])
+
   const handleAccept = () => {
     localStorage.setItem("cookie-consent", "accepted")
     setIsVisible(false)
+    window.dispatchEvent(new CustomEvent("cookie-consent-changed"))
   }
 
   const handleDecline = () => {
     localStorage.setItem("cookie-consent", "declined")
     setIsVisible(false)
+    window.dispatchEvent(new CustomEvent("cookie-consent-changed"))
   }
 
   return (
@@ -41,12 +50,12 @@ export function CookieConsent() {
             className="absolute top-3 right-3 text-text-muted hover:text-text transition-colors"
             aria-label="Zamknij"
           >
-            <X className="h-4 w-4" />
+            <X size={16} weight="bold" />
           </button>
 
           <div className="flex items-start gap-3">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-50">
-              <Cookie className="h-5 w-5 text-yellow-500" />
+              <Cookie size={20} weight="duotone" className="text-yellow-500" />
             </div>
             <div className="space-y-3">
               <p className="text-sm text-text-light leading-relaxed pr-4">
@@ -62,7 +71,7 @@ export function CookieConsent() {
               <div className="flex gap-2">
                 <button
                   onClick={handleAccept}
-                  className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-1.5 text-xs font-bold text-white transition-all hover:shadow-lg hover:shadow-pink-500/25"
+                  className="rounded-full bg-pink-500 px-4 py-1.5 text-xs font-bold text-white transition-all hover:shadow-lg hover:shadow-pink-500/25 active:scale-[0.97]"
                   style={{ fontFamily: "var(--font-baloo)" }}
                 >
                   Akceptuję

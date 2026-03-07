@@ -1,56 +1,66 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #FFF9F5;
-  --color-foreground: #2D3748;
+  --color-background: #FFFBF7;
+  --color-foreground: #3D2C5E;
   --color-surface: #FFFFFF;
 
-  --color-pink-50: #FFF0F5;
-  --color-pink-100: #FFE0EB;
-  --color-pink-400: #FFA8C5;
-  --color-pink-500: #FF6B9D;
-  --color-pink-600: #FF5287;
+  --color-pink-50: #FFF0F6;
+  --color-pink-100: #FFDBE8;
+  --color-pink-200: #FFB8D4;
+  --color-pink-300: #FF8AB8;
+  --color-pink-400: #FF5FA0;
+  --color-pink-500: #FF3D8A;
+  --color-pink-600: #E8256F;
 
-  --color-teal-50: #E0F2F1;
-  --color-teal-100: #B2DFDB;
-  --color-teal-400: #7FE5DD;
-  --color-teal-500: #4ECDC4;
-  --color-teal-600: #38B2AC;
+  --color-teal-50: #E0FFF9;
+  --color-teal-100: #B0F5E8;
+  --color-teal-200: #7EEBD8;
+  --color-teal-300: #4DE0C8;
+  --color-teal-400: #2DD4B8;
+  --color-teal-500: #14C8A8;
+  --color-teal-600: #00A88A;
 
-  --color-purple-50: #EDE9FE;
-  --color-purple-100: #DDD6FE;
-  --color-purple-400: #C4B5FD;
-  --color-purple-500: #A78BFA;
-  --color-purple-600: #8B5CF6;
+  --color-purple-50: #F3EEFF;
+  --color-purple-100: #E0D4FF;
+  --color-purple-200: #C9B3FF;
+  --color-purple-400: #9B6EFF;
+  --color-purple-500: #7C4DFF;
+  --color-purple-600: #6236E0;
 
-  --color-yellow-50: #FFF9C4;
-  --color-yellow-100: #FFF3A0;
-  --color-yellow-400: #FFE67D;
-  --color-yellow-500: #FFD93D;
-  --color-yellow-600: #F59E0B;
+  --color-yellow-50: #FFFDE6;
+  --color-yellow-100: #FFF7B3;
+  --color-yellow-200: #FFEF80;
+  --color-yellow-300: #FFE74D;
+  --color-yellow-400: #FFDD1A;
+  --color-yellow-500: #FFD000;
+  --color-yellow-600: #F5A623;
 
-  --color-green-50: #D1FAE5;
-  --color-green-100: #A7F3D0;
-  --color-green-400: #6EE7B7;
-  --color-green-500: #34D399;
-  --color-green-600: #10B981;
+  --color-green-50: #E6FFF0;
+  --color-green-100: #B3FFD6;
+  --color-green-200: #80FFBA;
+  --color-green-400: #33E890;
+  --color-green-500: #00D26A;
+  --color-green-600: #00B35A;
 
-  --color-orange-50: #FFF5F5;
-  --color-orange-100: #FED7D7;
-  --color-orange-400: #FCA5A5;
-  --color-orange-500: #F87171;
-  --color-orange-600: #EF4444;
+  --color-orange-50: #FFF4EC;
+  --color-orange-100: #FFE2CC;
+  --color-orange-200: #FFD0AB;
+  --color-orange-400: #FFA25B;
+  --color-orange-500: #FF8534;
+  --color-orange-600: #F06B10;
 
-  --color-text: #2D3748;
-  --color-text-light: #4A5568;
-  --color-text-muted: #718096;
+  --color-text: #3D2C5E;
+  --color-text-light: #5A4478;
+  --color-text-muted: #8B7BA0;
 
-  --font-display: var(--font-fredoka);
+  --font-display: var(--font-baloo);
   --font-body: var(--font-nunito);
   --font-accent: var(--font-baloo);
 }
 
 html {
+  --font-fredoka: var(--font-baloo);
   scroll-behavior: smooth;
 }
 
@@ -63,15 +73,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Fix descender clipping for gradient text (bg-clip-text cuts off g, y, j, p, q) */
-.bg-clip-text {
-  padding-bottom: 0.15em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
 
 ::selection {
-  background-color: #FF6B9D;
+  background-color: #FF3D8A;
   color: white;
 }
 
@@ -86,14 +90,14 @@ section[id] {
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFF9F5;
+  background: #FFFBF7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #FF6B9D, #A78BFA);
+  background: linear-gradient(180deg, #FF3D8A, #7C4DFF);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #FF5287, #8B5CF6);
+  background: linear-gradient(180deg, #E8256F, #6236E0);
 }

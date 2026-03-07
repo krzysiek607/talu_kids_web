@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
+import { List, X } from "@phosphor-icons/react"
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants"
 import { cn, href } from "@/lib/utils"
 
@@ -37,7 +37,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-white/90 backdrop-blur-xl shadow-lg shadow-pink-500/5 border-b border-pink-100"
+            ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-pink-500/5 border-b border-pink-100/50"
             : "bg-transparent"
         )}
       >
@@ -62,23 +62,32 @@ export function Navbar() {
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={href(link.href)}
                 className="relative px-4 py-2 text-sm font-semibold text-text-light transition-colors hover:text-pink-500 group"
                 style={{ fontFamily: "var(--font-baloo)" }}
               >
                 {link.label}
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
+                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-pink-500 rounded-full transition-all duration-300 group-hover:w-3/4" />
               </a>
             ))}
           </div>
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="#newsletter"
-              className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-pink-500/25 transition-all hover:shadow-xl hover:shadow-pink-500/30 hover:-translate-y-0.5 active:translate-y-0"
+              href={href("/panel-rodzica")}
+              className="rounded-full border-2 border-purple-200 bg-white px-5 py-2 text-sm font-bold text-purple-500 transition-all hover:bg-purple-500 hover:text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97]"
               style={{ fontFamily: "var(--font-baloo)" }}
             >
-              Dołącz do beta
+              Panel Rodzica
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=pl.talukids.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-pink-500 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-pink-500/25 transition-all hover:shadow-xl hover:shadow-pink-500/30 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.97]"
+              style={{ fontFamily: "var(--font-baloo)" }}
+            >
+              Pobierz aplikację
             </a>
           </div>
 
@@ -87,7 +96,7 @@ export function Navbar() {
             className="flex h-11 w-11 items-center justify-center rounded-xl text-text transition-colors hover:bg-pink-50 lg:hidden"
             aria-label={isMobileOpen ? "Zamknij menu" : "Otwórz menu"}
           >
-            {isMobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMobileOpen ? <X size={20} weight="bold" /> : <List size={20} weight="bold" />}
           </button>
         </nav>
       </motion.header>
@@ -104,7 +113,7 @@ export function Navbar() {
               {NAV_LINKS.map((link, i) => (
                 <motion.a
                   key={link.href}
-                  href={link.href}
+                  href={href(link.href)}
                   onClick={() => setIsMobileOpen(false)}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -116,15 +125,28 @@ export function Navbar() {
                 </motion.a>
               ))}
               <motion.a
-                href="#newsletter"
+                href={href("/panel-rodzica")}
                 onClick={() => setIsMobileOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: NAV_LINKS.length * 0.08 }}
-                className="mt-4 rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-3 text-lg font-bold text-white shadow-lg"
+                className="mt-4 rounded-full border-2 border-purple-200 bg-white px-8 py-3 text-lg font-bold text-purple-500"
                 style={{ fontFamily: "var(--font-baloo)" }}
               >
-                Dołącz do beta
+                Panel Rodzica
+              </motion.a>
+              <motion.a
+                href="https://play.google.com/store/apps/details?id=pl.talukids.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: (NAV_LINKS.length + 1) * 0.08 }}
+                className="rounded-full bg-pink-500 px-8 py-3 text-lg font-bold text-white shadow-lg"
+                style={{ fontFamily: "var(--font-baloo)" }}
+              >
+                Pobierz aplikację
               </motion.a>
             </nav>
           </motion.div>

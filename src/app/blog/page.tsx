@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Calendar, Clock, ArrowRight } from "lucide-react"
+import { CalendarDots, Clock, ArrowRight } from "@phosphor-icons/react/dist/ssr"
 import { href } from "@/lib/utils"
 
 export const metadata: Metadata = {
@@ -47,7 +47,7 @@ export default function BlogPage() {
       <div className="mx-auto max-w-4xl px-6">
         <div className="mb-12 text-center">
           <h1
-            className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent mb-3 sm:text-5xl"
+            className="text-4xl font-bold text-pink-600 mb-3 sm:text-5xl"
             style={{ fontFamily: "var(--font-fredoka)" }}
           >
             Blog TaLu Kids
@@ -82,7 +82,7 @@ export default function BlogPage() {
                   </p>
                   <div className="flex items-center gap-4 text-xs text-text-muted">
                     <span className="flex items-center gap-1">
-                      <Calendar className="h-3.5 w-3.5" />
+                      <CalendarDots size={14} weight="bold" />
                       {new Date(post.date).toLocaleDateString("pl-PL", {
                         day: "numeric",
                         month: "long",
@@ -90,12 +90,12 @@ export default function BlogPage() {
                       })}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock className="h-3.5 w-3.5" />
+                      <Clock size={14} weight="bold" />
                       {post.readTime}
                     </span>
                   </div>
                 </div>
-                <ArrowRight className="h-5 w-5 shrink-0 text-pink-300 transition-all group-hover:text-pink-500 group-hover:translate-x-1 mt-1" />
+                <ArrowRight size={20} weight="bold" className="shrink-0 text-pink-300 transition-all group-hover:text-pink-500 group-hover:translate-x-1 mt-1" />
               </div>
             </a>
           ))}

@@ -15,6 +15,8 @@ export const NAV_LINKS = [
   { label: "Przewodnicy", href: "#przewodnicy" },
   { label: "Dla rodziców", href: "#dla-rodzicow" },
   { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blog" },
+  { label: "Kontakt", href: "/kontakt" },
 ] as const
 
 export const FEATURES = [
@@ -22,14 +24,14 @@ export const FEATURES = [
     title: "Gry edukacyjne",
     description:
       "Interaktywne gry rozwijające logiczne myślenie, pamięć i zdolności manualne. 7 różnych gier dostosowanych do wieku dziecka.",
-    icon: "Gamepad2" as const,
+    icon: "GameController" as const,
     color: "pink" as const,
   },
   {
     title: "Nauka pisania",
     description:
       "Cały polski alfabet od A do Ż z systemem waypointów. Dziecko śledzi literki palcem i zdobywa nagrody za każdą opanowaną.",
-    icon: "PenTool" as const,
+    icon: "PencilLine" as const,
     color: "teal" as const,
   },
   {
@@ -49,8 +51,8 @@ export const FEATURES = [
   {
     title: "Bezpieczna przestrzeń",
     description:
-      "Zero reklam, zero ukrytych płatności. Kontrola rodzicielska z bramką 4-sekundową. Pełna zgodność z RODO i COPPA.",
-    icon: "Shield" as const,
+      "Zero reklam, zero ukrytych płatności. Kontrola rodzicielska z bramką 4-sekundową. Pełna zgodność z RODO i COPPA. Działa offline - idealna na podróże!",
+    icon: "ShieldCheck" as const,
     color: "green" as const,
   },
   {
@@ -64,21 +66,21 @@ export const FEATURES = [
 
 export const EVOLUTION_STEPS = [
   {
-    emoji: "\uD83E\uDD5A",
+    image: "/images/eggs/egg.png",
     title: "Opiekuj się",
     description:
       "Karm, myj i baw się ze swoim jajkiem. Ono potrzebuje miłości, żeby rosnąć!",
     color: "yellow" as const,
   },
   {
-    emoji: "\u26A1",
+    image: "/images/eggs/firstCrack.png",
     title: "Ucz się",
     description:
       "Rozwiązuj zadania edukacyjne, aby zdobywać magiczną energię potrzebną do wyklucia.",
     color: "teal" as const,
   },
   {
-    emoji: "\uD83D\uDC23",
+    image: "/images/eggs/secondCrack.png",
     title: "Wykluwaj!",
     description:
       "Zobacz moment pęknięcia skorupki i poznaj swojego unikalnego zwierzaka!",
@@ -114,12 +116,12 @@ export const FAQ_ITEMS = [
   {
     question: "Dla jakiego wieku jest TaLu Kids?",
     answer:
-      "TaLu Kids jest zaprojektowane dla dzieci w wieku 4-8 lat. Zadania są dostosowane do poziomu rozwoju dziecka i stopniowo się utrudniają.",
+      "TaLu Kids jest zaprojektowane dla dzieci w wieku 4-8 lat. Zadania są dostosowane do poziomu rozwoju dziecka i stopniowo się utrudniają. Młodsze dzieci (4-5 lat) mogą skupić się na rysowaniu i prostych grach, a starsze (6-8 lat) na nauce pisania liter i bardziej zaawansowanych zagadkach logicznych.",
   },
   {
     question: "Czy aplikacja jest bezpieczna dla mojego dziecka?",
     answer:
-      "Absolutnie! Nie ma żadnych reklam, ukrytych płatności ani linków zewnętrznych. Aplikacja jest w pełni zgodna z RODO i COPPA. Panel rodzica jest chroniony 4-sekundową bramką bezpieczeństwa.",
+      "Absolutnie! Nie ma żadnych reklam, ukrytych płatności ani linków zewnętrznych. Aplikacja jest w pełni zgodna z RODO i COPPA. Panel rodzica jest chroniony 4-sekundową bramką bezpieczeństwa. Wszystkie dane są szyfrowane, a dziecko nie ma dostępu do żadnych funkcji wymagających kontaktu z innymi użytkownikami.",
   },
   {
     question: "Jak działa system zwierzaka?",
@@ -134,11 +136,41 @@ export const FAQ_ITEMS = [
   {
     question: "Czy mogę śledzić postępy mojego dziecka?",
     answer:
-      "Tak! Panel rodzica pozwala zobaczyć, które litery dziecko opanowało, ile czasu spędza w aplikacji i jakie nagrody zdobyło. Raporty są przejrzyste i łatwe do zrozumienia.",
+      "Tak! W ustawieniach aplikacji możesz połączyć konto rodzica, podając swój email i hasło. Następnie zaloguj się na talukids.pl/panel-rodzica — zobaczysz statystyki gier, aktywność z ostatnich 7 dni, zebrane nagrody i ulubione gry dziecka. Wszystko dostępne z telefonu, tabletu lub komputera.",
   },
   {
     question: "Ile kosztuje TaLu Kids?",
     answer:
-      "Podstawowa wersja aplikacji jest darmowa i zawiera pełen zestaw gier edukacyjnych. W przyszłości planujemy wersję premium z dodatkowymi treściami i zwierzakami.",
+      "Podstawowa wersja aplikacji jest darmowa i zawiera pełen zestaw gier edukacyjnych. Wersja TaLu+ Premium odblokowuje wszystkie gry, nielimitowane rysowanie, dodatkowe zwierzaki i kostiumy, nowe lekcje co tydzień oraz całkowity brak reklam. Subskrypcja jest dostępna w planach miesięcznym i rocznym.",
+  },
+  {
+    question: "Czy moje dziecko może korzystać z aplikacji offline?",
+    answer:
+      "Tak! TaLu Kids działa w pełni offline po pobraniu. Wszystkie gry edukacyjne, nauka pisania liter i zabawa ze zwierzakiem są dostępne bez połączenia z internetem. To idealne rozwiązanie na podróże samochodem, loty samolotem czy miejsca bez zasięgu Wi-Fi.",
+  },
+  {
+    question: "Ile czasu dziennie moje dziecko powinno spędzać w aplikacji?",
+    answer:
+      "Rekomendujemy 15-30 minut dziennie – to optymalny czas nauki przez zabawę dla dzieci w wieku 4-8 lat. Panel rodzica pozwala ustawić limity czasu, a system nagród motywuje do regularnych, krótkich sesji zamiast długiego siedzenia przy ekranie. Dzięki temu TaLu Kids wspiera zdrowe nawyki korzystania z technologii.",
+  },
+  {
+    question: "Jak TaLu Kids uczy moje dziecko? Jaka jest metodologia?",
+    answer:
+      "TaLu Kids opiera się na metodzie nauki przez zabawę (game-based learning). Każda gra rozwija konkretne umiejętności: logiczne myślenie, rozpoznawanie wzorców, koordynację ręka-oko i znajomość alfabetu. System zwierzaka dodaje element motywacji – dziecko uczy się, by pomagać swojemu pupilowi rosnąć. Trudność zadań dostosowuje się automatycznie do poziomu dziecka.",
+  },
+  {
+    question: "Czy z aplikacji może korzystać więcej niż jedno dziecko?",
+    answer:
+      "Obecnie TaLu Kids obsługuje jeden profil dziecka na urządzeniu. Pracujemy nad funkcją wielu profili, która pozwoli każdemu dziecku mieć własnego zwierzaka i osobne postępy. Jeśli masz więcej dzieci, mogą na razie korzystać na osobnych urządzeniach.",
+  },
+  {
+    question: "Co wyróżnia TaLu Kids na tle innych aplikacji edukacyjnych?",
+    answer:
+      "TaLu Kids łączy edukację z emocjonalnym zaangażowaniem dzięki systemowi wirtualnego zwierzaka. Zamiast suchych ćwiczeń, dziecko uczy się, by pomagać swojemu pupilowi ewoluować. Aplikacja jest stworzona przez rodziców, dla rodziców – dlatego stawiamy na bezpieczeństwo (zero reklam, RODO, COPPA), polski alfabet od A do Ż i zadania dostosowane do polskiego systemu edukacji.",
+  },
+  {
+    question: "Jakie dane zbiera aplikacja i jak są chronione?",
+    answer:
+      "TaLu Kids zbiera minimalną ilość danych – tylko to, co niezbędne do działania aplikacji i śledzenia postępów. Nie zbieramy danych osobowych dzieci takich jak imię, zdjęcie czy lokalizacja. Wszystkie dane są szyfrowane (TLS 1.3, AES-256) i przechowywane zgodnie z RODO. Jako rodzic masz pełne prawo do wglądu, eksportu i usunięcia danych w dowolnym momencie.",
   },
 ] as const

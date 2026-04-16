@@ -1,6 +1,6 @@
 "use client"
 
-import { Envelope, Heart, Cookie } from "@phosphor-icons/react"
+import { Envelope, Heart, Cookie, FacebookLogo, TiktokLogo } from "@phosphor-icons/react"
 import Image from "next/image"
 import { SITE_CONFIG, NAV_LINKS } from "@/lib/constants"
 import { href } from "@/lib/utils"
@@ -121,6 +121,26 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-pink-50 pt-8 sm:flex-row">
           <p className="text-xs text-text-muted">{SITE_CONFIG.copyright}</p>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.facebook.com/profile.php?id=61588632072783"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted hover:text-pink-500 transition-colors"
+              aria-label="Facebook"
+            >
+              <FacebookLogo size={22} weight="fill" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@talukids.pl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted hover:text-pink-500 transition-colors"
+              aria-label="TikTok"
+            >
+              <TiktokLogo size={22} weight="fill" />
+            </a>
+          </div>
           <p className="flex items-center gap-1 text-xs text-text-muted">
             Stworzone z <Heart size={12} weight="fill" className="text-pink-500" /> dla
             dzieci

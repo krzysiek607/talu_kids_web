@@ -31,8 +31,8 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
 
 const stats = [
   {
-    value: 10,
-    suffix: "",
+    value: 20,
+    suffix: "+",
     label: "Gier w aplikacji",
     icon: GameController,
     color: "text-pink-500",
@@ -47,9 +47,9 @@ const stats = [
     bg: "bg-teal-50",
   },
   {
-    value: 4,
+    value: 5,
     suffix: "",
-    label: "Fazy ewolucji",
+    label: "Magicznych zwierzaków",
     icon: Trophy,
     color: "text-purple-500",
     bg: "bg-purple-50",

@@ -15,7 +15,7 @@ const items = [
     icon: Egg,
     title: "Nauka napędza zwierzaka",
     description:
-      "Jedyna aplikacja, w której edukacja jest bezpośrednio połączona z opieką nad wirtualnym pupilem. Dziecko uczy się, bo chce - nie dlatego, że musi.",
+      "Jedyna aplikacja, w której edukacja jest bezpośrednio połączona z opieką nad wirtualnym pupilem. Wykluł się? Wybierz jednego z 5 zwierzaków! Dziecko uczy się, bo chce — nie dlatego, że musi.",
     color: "text-pink-500",
     bg: "bg-pink-50",
     border: "border-pink-200/50",

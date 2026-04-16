@@ -26,6 +26,13 @@ const colorMap = {
     shadow: "shadow-purple-500/10",
     badge: "bg-purple-500",
   },
+  pink: {
+    bg: "bg-pink-50",
+    border: "border-pink-300",
+    text: "text-pink-600",
+    shadow: "shadow-pink-500/10",
+    badge: "bg-pink-500",
+  },
 } as const
 
 export function HowItWorks() {

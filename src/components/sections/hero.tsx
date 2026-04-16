@@ -1,15 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Star, Sparkle } from "@phosphor-icons/react"
-
-const floatingShapes = [
-  { color: "bg-yellow-400", size: "w-16 h-16", position: "top-[15%] left-[8%]", delay: 0, duration: 20 },
-  { color: "bg-pink-400", size: "w-12 h-12", position: "top-[25%] right-[12%]", delay: 2, duration: 25 },
-  { color: "bg-teal-400", size: "w-20 h-20", position: "bottom-[20%] left-[12%]", delay: 4, duration: 22 },
-  { color: "bg-purple-400", size: "w-14 h-14", position: "bottom-[30%] right-[8%]", delay: 6, duration: 28 },
-  { color: "bg-green-400", size: "w-10 h-10", position: "top-[50%] left-[3%]", delay: 3, duration: 18 },
-]
+import { ArrowRight, Star, Sparkle, ShieldCheck, Heart } from "@phosphor-icons/react"
+import { AnimatedBackground } from "@/components/ui/animated-background"
 
 export function Hero() {
   return (
@@ -17,30 +10,42 @@ export function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Animated background shapes */}
-      <div className="absolute inset-0 pointer-events-none">
-        {floatingShapes.map((shape, i) => (
-          <motion.div
-            key={i}
-            className={`absolute ${shape.position} ${shape.size} rounded-2xl ${shape.color} opacity-10 blur-sm`}
-            animate={{
-              y: [0, -30, 10, -20, 0],
-              x: [0, 15, -10, 20, 0],
-              rotate: [0, 90, 180, 270, 360],
-              scale: [1, 1.1, 0.95, 1.05, 1],
-            }}
-            transition={{
-              duration: shape.duration,
-              delay: shape.delay,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
-      </div>
+      {/* Magical animated background */}
+      <AnimatedBackground />
 
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-pink-50/40 via-transparent to-purple-50/30 pointer-events-none" />
+      {/* Side characters - Taro and Lumi (desktop only) */}
+      <motion.img
+        src="/images/characters/taro/taro_waving.webp"
+        alt="Taro"
+        initial={{ opacity: 0, x: -40 }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          y: [0, -15, 0],
+        }}
+        transition={{
+          opacity: { duration: 0.8, delay: 0.5 },
+          x: { duration: 0.8, delay: 0.5 },
+          y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+        }}
+        className="pointer-events-none absolute bottom-10 left-4 z-[1] hidden h-48 w-48 object-contain drop-shadow-2xl lg:block xl:h-64 xl:w-64"
+      />
+      <motion.img
+        src="/images/characters/lumi/lumi_waving.webp"
+        alt="Lumi"
+        initial={{ opacity: 0, x: 40 }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          y: [0, -15, 0],
+        }}
+        transition={{
+          opacity: { duration: 0.8, delay: 0.7 },
+          x: { duration: 0.8, delay: 0.7 },
+          y: { duration: 4, delay: 1, repeat: Infinity, ease: "easeInOut" },
+        }}
+        className="pointer-events-none absolute bottom-10 right-4 z-[1] hidden h-48 w-48 object-contain drop-shadow-2xl lg:block xl:h-64 xl:w-64"
+      />
 
       <div className="relative mx-auto max-w-5xl px-6 py-20 text-center">
         {/* Badge - glassmorphism */}
@@ -93,8 +98,8 @@ export function Hero() {
           className="mx-auto mb-10 max-w-2xl text-lg text-text-muted leading-relaxed"
         >
           Odkryj magiczne jajko, które rośnie razem z wiedzą Twojego malucha.
-          Gry edukacyjne, nauka pisania liter i wirtualny zwierzak - wszystko w
-          bezpiecznej przestrzeni bez reklam.
+          20+ gier edukacyjnych, nauka pisania liter, 5 magicznych zwierzaków
+          i tryb Przygoda — wszystko w bezpiecznej przestrzeni bez reklam.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -123,31 +128,29 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Social proof */}
+        {/* Trust badges - honest version */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 1 }}
-          className="mt-16 flex flex-col items-center gap-3"
+          className="mt-12 flex flex-col items-center gap-4"
         >
-          <div className="flex -space-x-2">
-            {["AK", "TW", "MD", "JB", "KL"].map((initials, i) => (
-              <div
-                key={i}
-                className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-pink-500 text-xs font-bold text-white shadow-md hover:scale-110 hover:-translate-y-1 transition-transform"
-              >
-                {initials}
-              </div>
-            ))}
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-text-muted">
+            <span className="inline-flex items-center gap-1.5">
+              <ShieldCheck size={18} weight="fill" className="text-green-500" />
+              Zgodna z RODO i COPPA
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Heart size={18} weight="fill" className="text-pink-500" />
+              Zero reklam
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Sparkle size={18} weight="fill" className="text-purple-500" />
+              Tworzona w Polsce
+            </span>
           </div>
-          <div className="flex items-center gap-1">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={16} weight="fill" className="text-yellow-400" />
-            ))}
-          </div>
-          <p className="text-sm text-text-muted">
-            <span className="font-bold text-text">500+</span> szczęśliwych rodzin
-            korzysta z aplikacji
+          <p className="text-xs text-text-muted/70 italic max-w-md text-center">
+            Startujemy — dołącz do pierwszych rodziców odkrywających TaLu Kids
           </p>
         </motion.div>
       </div>

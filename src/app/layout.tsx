@@ -3,7 +3,8 @@ import { Nunito, Baloo_2 } from "next/font/google"
 import { Navbar } from "@/components/layout/navbar"
 import { Footer } from "@/components/layout/footer"
 import { CookieConsent } from "@/components/ui/cookie-consent"
-import { PostHogProvider } from "@/components/analytics/posthog-provider"
+import { AnalyticsProvider } from "@/components/analytics/analytics-provider"
+import { IntroAnimation } from "@/components/ui/intro-animation"
 import "./globals.css"
 
 const nunito = Nunito({
@@ -115,11 +116,12 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <IntroAnimation />
         <Navbar />
         {children}
         <Footer />
         <CookieConsent />
-        <PostHogProvider />
+        <AnalyticsProvider />
       </body>
     </html>
   )

@@ -91,8 +91,8 @@ export function Features() {
             Świat pełen przygód i nauki
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-text-muted">
-            Każdy dzień z TaLu Kids to nowa przygoda. 7 gier edukacyjnych,
-            nauka całego polskiego alfabetu i wirtualny przyjaciel.
+            Każdy dzień z TaLu Kids to nowa przygoda. 20+ gier edukacyjnych,
+            nauka polskiego alfabetu, 5 zwierzaków do wyklucia i tryb Przygoda z 11 rozdziałami.
           </p>
         </motion.div>
 
